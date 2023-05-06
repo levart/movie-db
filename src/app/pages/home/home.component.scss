@@ -1,0 +1,13 @@
+:host {
+  position: relative;
+  height: 2500px;
+
+  .wrapper {
+    z-index: 3;
+    position: absolute;
+    top: 70%;
+    width: calc(100% - 125px);
+    height: 500px;
+    margin-left: 125px;
+  }
+}

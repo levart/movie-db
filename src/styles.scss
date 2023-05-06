@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.show-all {
+  width: 139px;
+  height: 40px;
+  border: none;
+  outline: none;
+
+  background: #5C5C5C;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #FFFFFF;
+  margin-right: 30px;
+}
