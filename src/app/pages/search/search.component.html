@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="filter" [formGroup]="filterForm">
+    <select formControlName="with_genres">
+      <option *ngFor="let genre of genres()" [value]="genre.id">{{genre.name}}</option>
+    </select>
+    <input formControlName="year"/>
+  </div>
+  <div class="movies">
+    <ng-container *ngIf="movies()">
+      <ng-container *ngFor="let movie of movies()">
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </ng-container>
+    </ng-container>
+  </div>
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    [maxSize]="9"
+    (pageChange)="onTableDataChange($event)"
+  >
+  </pagination-controls>
+</div>

@@ -1,0 +1,88 @@
+footer {
+  height: 389px;
+  background: #161214;
+  padding: 95px 80px 26px;
+  color: #FFFFFF;
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    .lang {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 30px;
+      color: #FFFFFF;
+      mix-blend-mode: normal;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    .navigation {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-family: 'Montserrat', serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 30px;
+      color: #FFFFFF;
+      mix-blend-mode: normal;
+      opacity: 0.8;
+      cursor: pointer;
+
+      .title {
+        font-family: 'Montserrat', serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          cursor: pointer;
+          position: relative;
+
+          a {
+            font-family: 'Montserrat', serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 30px;
+            color: #FFFFFF;
+            mix-blend-mode: normal;
+            opacity: 0.8;
+            text-decoration: none;
+
+            &:hover {
+              color: #38BBD8;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .social {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 15px;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+}

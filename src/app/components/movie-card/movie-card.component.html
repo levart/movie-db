@@ -1,0 +1,6 @@
+<img class="poster" [src]="movie.poster_path | image: 'w185'" alt="">
+<h4>{{movie.title}}</h4>
+<div class="rating">
+  <img class="star" src="/assets/images/star.png" >
+  {{movie.vote_average}}
+</div>

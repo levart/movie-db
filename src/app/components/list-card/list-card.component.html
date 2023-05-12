@@ -1,0 +1,20 @@
+<div class="header">
+  <h3 class="title">{{title}}</h3>
+<!--  <button class="show-all">SHOW ALL</button>-->
+
+  <ng-container *ngIf="headerBtn">
+    <ng-container *ngTemplateOutlet="headerBtn"></ng-container>
+  </ng-container>
+</div>
+
+<div class="list">
+<!--  <ng-content></ng-content>-->
+
+  <swiper-container slides-per-view="7" speed="500" [attr.autoplay]="autoplay"  loop="true" css-mode="true">
+    <ng-container *ngFor="let movie of movies">
+      <swiper-slide>
+        <app-movie-card [movie]="movie"/>
+      </swiper-slide>
+    </ng-container>
+  </swiper-container>
+</div>

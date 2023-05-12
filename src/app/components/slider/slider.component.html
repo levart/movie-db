@@ -1,0 +1,25 @@
+<ng-container >
+  <div class="poster"
+       [style.background-image]="'url(' + (movie.backdrop_path) + ')'"
+  >
+
+  </div>
+
+  <div class="gradient">
+    <div class="movie_info">
+      <div class="title">{{movie.original_title}}</div>
+      <div class="description">{{movie.overview}}</div>
+      <div class="rating">
+        <img src="/assets/images/star.png" alt="" width="20px">
+        {{movie.vote_average}}
+      </div>
+      <div class="actions">
+        <button app-button>Watch</button>
+      </div>
+    </div>
+  </div>
+  <div class="carousel" *ngIf="carousel">
+    <ng-container *ngTemplateOutlet="carousel"></ng-container>
+  </div>
+</ng-container>
+

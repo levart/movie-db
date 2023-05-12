@@ -6,6 +6,7 @@ import {AsyncPipe, NgForOf} from "@angular/common";
 import {ListCardComponent} from "../../components/list-card/list-card.component";
 import {MovieCardComponent} from "../../components/movie-card/movie-card.component";
 import {Movie} from "../../core/interfaces";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ import {Movie} from "../../core/interfaces";
     AsyncPipe,
     ListCardComponent,
     MovieCardComponent,
-    NgForOf
+    NgForOf,
+    RouterLink
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
@@ -43,11 +45,19 @@ export class HomeComponent implements OnInit {
   );
 
   constructor(
-    private tmdbService: TmdbService
+    private tmdbService: TmdbService,
+    private router: Router
   ) {
   }
 
   ngOnInit(): void {
   }
 
+  searchMovies(trending: string) {
+    this.router.navigate(['/search'], {
+      queryParams: {
+        trending
+      }
+    })
+  }
 }

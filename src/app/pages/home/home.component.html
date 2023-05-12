@@ -1,14 +1,15 @@
-<app-slider [popularMovies]="popularMovies$ | async"/>
-<div class="wrapper">
-  <app-list-card title="Trending Movies" [movies]="(trendingMovies$ | async) || []">
+<app-slider [popularMovies]="popularMovies$ | async" [carousel]="trendingMovies"/>
+<ng-template #trendingMovies>
+  <app-list-card title="Trending Movies" [movies]="(trendingMovies$ | async) || []" [autoplay]="true">
     <ng-template #headerBtn>
-      <button class="show-all">SHOW ALL</button>
+      <button class="show-all" (click)="searchMovies('trending')">SHOW ALL</button>
     </ng-template>
   </app-list-card>
-
-  <app-list-card title="Trending Movies" [movies]="(trendingMovies$ | async) || []">
+</ng-template>
+<div class="wrapper">
+  <app-list-card title="RECOMMENDED FOR YOU" [movies]="(trendingMovies$ | async) || []">
     <ng-template #headerBtn>
-      <button class="show-all">SHOW ALL</button>
+      <button class="show-all"  (click)="searchMovies('recommended')" >SHOW ALL</button>
     </ng-template>
   </app-list-card>
 

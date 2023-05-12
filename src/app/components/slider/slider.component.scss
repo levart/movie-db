@@ -1,0 +1,79 @@
+:host {
+  display: block;
+  height: 1107px;
+  position: relative;
+  .poster {
+    position: absolute;
+    height: 100%;
+    background-size: contain;
+    z-index: 1;
+    right: 0;
+    display: block;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #FFFFFF;
+
+
+  }
+
+  .carousel {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 125px);
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .gradient {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #000000 17.76%, rgba(0, 0, 0, 0.687449) 41.44%, rgba(196, 196, 196, 0) 100%);
+    display: block;
+
+    .movie_info {
+      color: #FFFFFF;
+      margin-left: 132px;
+      margin-top: 140px;
+      width: 40%;
+
+      .title {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 56px;
+        margin-bottom: 16px;
+      }
+
+      .description {
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+
+      }
+
+      .rating {
+        margin-top: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+
+        color: #FFC907;
+      }
+      .actions {
+        margin-top: 30px;
+      }
+    }
+  }
+}

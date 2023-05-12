@@ -1,16 +1,18 @@
 import {importProvidersFrom} from '@angular/core';
 import {AppComponent} from './app/app.component';
-import {withInterceptorsFromDi, provideHttpClient, HTTP_INTERCEPTORS, withInterceptors} from '@angular/common/http';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
 import {AppRoutingModule} from './app/app-routing.module';
-import {BrowserModule, bootstrapApplication} from '@angular/platform-browser';
+import {bootstrapApplication, BrowserModule} from '@angular/platform-browser';
 import {ApiKeyInterceptor} from "./app/core/interceptors";
-import {ImagePipe} from "./app/core/pipes";
+import {register} from 'swiper/element/bundle';
+import {NgxPaginationModule} from "ngx-pagination";
 
+register();
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(BrowserModule, AppRoutingModule),
+    importProvidersFrom(BrowserModule, AppRoutingModule, NgxPaginationModule),
     provideHttpClient(withInterceptors([ApiKeyInterceptor])),
-  ]
+  ],
 })
   .catch(err => console.error(err));
