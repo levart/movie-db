@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ImagePipe implements PipeTransform {
 
   transform(value: unknown, size: string = 'original'): string{
-    return `https://image.tmdb.org/t/p/${size}${value}`;
+    return `https://image.tmdb.org/t/p/${size}/${value}`;
   }
 
 }

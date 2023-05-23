@@ -41,4 +41,25 @@ export class TmdbService extends BaseService{
   }): Observable<any> {
     return this.get<any>(`/genre/movie/list`, params);
   }
+
+
+  getMovieDetails(params: {
+    id: number
+  }): Observable<any> {
+    return this.get<any>(`/movie/${params.id}`);
+  }
+
+  getMovieVideos(params: {
+    id: number
+  }): Observable<any> {
+    return this.get<any>(`/movie/${params.id}/videos`);
+  }
+
+  getMovieCast(param: { id: any }) {
+    return this.get<any>(`/movie/${param.id}/credits`);
+  }
+
+  getMovieSimilar(param: { id: any }) {
+    return this.get<any>(`/movie/${param.id}/similar`);
+  }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, computed, OnInit, Signal} from '@angular/core';
 import {SliderComponent} from "../../components/slider/slider.component";
 import {TmdbService} from "../../core/services";
 import {map, Observable} from "rxjs";
@@ -7,6 +7,7 @@ import {ListCardComponent} from "../../components/list-card/list-card.component"
 import {MovieCardComponent} from "../../components/movie-card/movie-card.component";
 import {Movie} from "../../core/interfaces";
 import {Router, RouterLink} from "@angular/router";
+import {toSignal} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-home',
@@ -23,26 +24,28 @@ import {Router, RouterLink} from "@angular/router";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  popularMovies$: Observable<Movie.Popular | null>  = this.tmdbService.getPopularMovies({
+  popularMovies: Signal<Movie.Popular[] | undefined>  = toSignal(this.tmdbService.getPopularMovies({
     page: 1,
     language: 'en-US'
   }).pipe(
-    map((res) => {
-      if (res.results && res.results.length) {
-        return res.results[0];
-      }
-      return null;
-    })
-  );
+    map((res) => res.results)
+  ))
 
-  trendingMovies$: Observable<Movie.Movie[]>  = this.tmdbService.getTrendingMovies({
+  trendingMovies: Signal<Movie.Movie[] | undefined>  = toSignal(this.tmdbService.getTrendingMovies({
     mediaType: 'movie',
     timeWindow: 'week'
   }).pipe(
     map((res) => {
       return res.results;
     })
-  );
+  ));
+
+  topMovie = computed(() => {
+    if (!this.popularMovies() || this.popularMovies()?.length === 0) {
+      return null;
+    }
+    return this.popularMovies()?.slice(0, 1)[0];
+  })
 
   constructor(
     private tmdbService: TmdbService,

@@ -29,7 +29,6 @@ export class SearchComponent implements OnInit {
   page = signal(1)
 
   genres = toSignal(this.tmdbService.getGenres().pipe(map( res => res.genres)))
-  genres$ = toObservable(this.genres);
 
 
 

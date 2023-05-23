@@ -5,6 +5,16 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 5px;
+  cursor: pointer;
+
+  &:hover {
+    .poster {
+      overflow: hidden;
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+
   .poster {
     width: 168px;
     height: 237px;

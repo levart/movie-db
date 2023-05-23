@@ -18,7 +18,7 @@ export class SliderComponent {
 
   @Input({
     required: true
-  }) set popularMovies(movie: Movie.Popular | null) {
+  }) set popularMovies(movie: Movie.Popular | Movie.Movie | null | undefined ) {
     if(!movie) return;
     this._movie = {
       ...movie,

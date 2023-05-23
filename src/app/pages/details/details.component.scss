@@ -1,0 +1,45 @@
+.actors-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 40px;
+
+  .trailer {
+    flex: initial;
+
+  }
+
+  .actors {
+    flex: 1 1 700px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 16px;
+      flex: initial;
+    }
+
+    .list {
+      flex: 1;
+
+      .actor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+
+  }
+
+}
+.similar {
+  margin-left: 140px;
+}
